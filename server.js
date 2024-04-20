@@ -15,6 +15,13 @@ const Users = [
 
 const app = express();
 
+app.use((req,res,next) => {
+  const timer = Date.now();
+  console.log(`${req.method} ${req.url}`);
+  next();
+  const diffTimer = Date.now();
+  console.log(`${req.method} ${req.url} ${diffTimer}ms`);
+})
 app.use(express.json());
 
 app.get('/', (req,res) => {
