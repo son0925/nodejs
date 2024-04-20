@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 const port = '4000';
 
@@ -15,6 +16,7 @@ app.use((req,res,next) => {
   console.log(`${req.method} ${req.baseUrl} ${diffTimer}ms`);
 })
 app.use(express.json());
+app.use('/static', express.static(path.join(__dirname,'public')));
 
 app.get('/', (req,res) => {
   res.send('Hello Git & NodeJs');
