@@ -1,5 +1,7 @@
+const path = require('path');
+
 function postHtml(req,res) {
-  res.send('<div><h1>Post Html</h1><p>This is Post</p></div>')
+  res.sendFile(path.join(__dirname, "..", "public", "images", "coding.jpeg"));
 }
 
 module.exports = postHtml;
