@@ -17,9 +17,13 @@ app.use((req,res,next) => {
 })
 app.use(express.json());
 app.use('/static', express.static(path.join(__dirname,'public')));
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views')); 
 
 app.get('/', (req,res) => {
-  res.send('Hello Git & NodeJs');
+  res.render('index', {
+    imageTitle: "It is a coding"
+  })
 })
 
 app.use('/users', usersRouter);

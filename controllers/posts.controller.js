@@ -1,7 +1,11 @@
 const path = require('path');
 
-function postHtml(req,res) {
-  res.sendFile(path.join(__dirname, "..", "public", "images", "coding.jpeg"));
+function getPost(req,res) {
+  // res.sendFile(path.join(__dirname, "..", "public", "images", "coding.jpeg"));
+  res.render('posts', {
+    templateName: 'post'
+  })
 }
 
-module.exports = postHtml;
+
+module.exports = getPost;
